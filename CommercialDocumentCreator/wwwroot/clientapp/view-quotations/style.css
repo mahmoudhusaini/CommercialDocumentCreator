@@ -1,0 +1,503 @@
+/* --------------------------------------------------Invoice Container&Invoice Items------------------------------------------------ */
+
+.invoices-count {
+    margin: 50px;
+    color: #3e97d6;
+}
+
+
+/* --------------------------------------------------TOGGLE SWITCH------------------------------------------------ */
+
+.toggle-switch-container {
+    margin: 50px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+
+/* --------------------------------------------------EMPTY DOCUMENTS CONTAINER------------------------------------------------ */
+
+.no-quotations,
+.no-invoices {
+    text-align: center;
+    margin: 80px auto;
+    color: #3e97d6;
+}
+
+
+/* --------------------------------------------------Invoice Container&Invoice Items------------------------------------------------ */
+
+
+.quotation-container,
+.invoice-container {
+    width: 90%;
+    max-width: 800px;
+    min-height: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quotation-list,
+.invoice-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quotation-item,
+.invoice-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quotation-item:hover,
+.invoice-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quote-name,
+.invoice-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.quote-amount,
+.invoice-amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3e97d6;
+}
+
+.quote-currency,
+.invoice-currency {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3e97d6;
+}
+
+.quote-extra-info,
+.invoice-extra-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    padding-left: 15px;
+    text-indent: -15px;
+    position: relative;
+}
+
+.quote-extra-info p,
+.invoice-extra-info p {
+    margin: 5px 0;
+}
+
+.quote-extra-info p:before,
+.invoice-extra-info p:before {
+    color: #3e97d6;
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+    .quotation-item,
+    .invoice-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .no-quotations,
+    .no-invoices {
+        font-size: 14px;
+    }
+
+    .quote-name,
+    .invoice-name {
+        font-size: 14px;
+    }
+
+    .quote-name,
+    .invoice-name,
+    .quote-amount,
+    .invoice-amount {
+        font-size: 14px;
+    }
+
+    .quote-extra-info,
+    .invoice-extra-info {
+        font-size: 13px;
+    }
+}
+
+/* --------------------------------------------------Loading Spinner------------------------------------------------ */
+
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3e97d6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* -------------------------------------------------- Item Buttons------------------------------------------------ */
+
+
+/* Button Container */
+.quotation-buttons,
+.invoice-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Button Styling */
+.quotation-buttons button,
+.invoice-buttons button {
+    flex: 1 1 48%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.delete-btn:active {
+    background-color: #a93226;
+    transform: translateY(1px);
+}
+
+/* Post&Pay Buttons */
+
+.pay-btn:hover,
+.post-btn:hover {
+    transform: translateY(-2px);
+}
+
+.pay-btn:hover,
+.post-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+
+    .quotation-buttons,
+    .invoice-buttons {
+        gap: 5px;
+    }
+
+    .quotation-buttons button,
+    .invoice-buttons button {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* -----------------------------------------------Add New Item------------------------------------------------------ */
+
+.detail-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin: 5px 0;
+    align-items: center;
+}
+
+.detail-input {
+    padding: 3px;
+    font-size: 14px;
+    width: 90px;
+}
+
+.detail-input.desc {
+    width: 180px;
+}
+
+.detail-input.total {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.add-detail-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #3e97d6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-detail-btn:hover {
+    background-color: #337ab7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------- Popup Main Container  ---------------------------------------------- */
+
+
+
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.popup-content {
+    position: relative;
+    padding: 20px;
+    background: white;
+    width: 90%;
+    max-width: 1500px;
+    max-height: 90vh;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.close-popup-btn {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background-color: transparent;
+    color: #3e97d6;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------- Popup Sidebar  ----------------------------------------------------- */
+
+.popup-sidebar {
+    flex: 0 0 30%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 4px;
+
+}
+
+.update-btn {
+    background-color: #607D8B;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.update-btn:hover {
+    background-color: #fff;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.update-btn:active {
+    background-color: #607D8B;
+}
+
+
+/* ----------------------------------------------- Popup Products  ----------------------------------------------------- */
+
+.popup-products {
+    flex: 1;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.product-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: 4fr 4fr 2fr 2fr 2fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-row.header {
+    font-weight: bold;
+    background: #f5f5f5;
+    padding: 5px;
+}
+
+.popup-sidebar input,
+.product-row input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+}
+
+.popup-sidebar input:focus,
+.popup-content input:focus {
+    border-color: #3e97d6;
+    box-shadow: 0 0 5px rgba(62, 151, 214, 0.5);
+    outline: none;
+}
+
+.prod-det-txtarea {
+    width: 100%;
+    max-width: 600px;
+    height: 110px;
+    padding: 5px 5px;
+    font-size: 13px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* 
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+} */
+
+
+
+@media (max-width: 768px) {
+    .popup-content {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .popup-sidebar {
+        flex: none;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .popup-products {
+        flex: none;
+        width: 100%;
+    }
+}

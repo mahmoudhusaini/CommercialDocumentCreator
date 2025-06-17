@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/clientapp/shared-utilities/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400&display=swap" rel="stylesheet">
+    <title>QUOTER</title>
+</head>
+
+<body>
+    <div class="nav">
+
+    </div>
+
+    <!-- <div class="sidebar" id="sidebar">
+        <div class="sidebar-btns">
+            <div id="dashboard-btn"><p>Dashboard</p></div>
+            <div id="dashboard-catalogue">
+                <a href="/clientapp/trade-tally/tradetally.html">TradeTally</a>
+            </div>
+            <div id="dashboard-catalogue">
+                <a href="/clientapp/new-category/index.html">New Category</a>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn">☰</button>
+        <ul>
+            <li>
+                <i>🏠</i>
+                <span>Dashboard</span>
+            </li>
+            <!-- <a href="/clientapp/trade-tally/tradetally.html">
+                <li>
+                    <i>📝</i>
+                    <span>TradeTally</span>
+                </li>
+            </a> -->
+
+            <a href="/clientapp/statement/index.html">
+                <li>
+                    <i>📝</i>
+                    <span>Statement</span>
+                </li>
+            </a>
+
+            <!-- <li><i>📦</i> <span>Projects</span></li> -->
+            <!-- <li><i>⚙️</i> <span>Settings</span></li> -->
+        </ul>
+    </div>
+
+
+    <div class="main-content" id="main-content">
+        <div class="grid-btns-container">
+            <div id="new-quotation">Create Quotation</div>
+            <div id="new-invoice">Create Invoice</div>
+            <div id="new-receipt">Create Receipt</div>
+            <!-- <div id="new-product">Add New Product</div> -->
+        </div>
+
+        <div class="grid-btns-container" id="view-btns-container">
+            <div id="view-quotation">View Quotations</div>
+            <div id="view-invoice">View Invoices</div>
+            <div id="view-receipt">View Receipts</div>
+            <!-- <div id="view-products">View Products</div> -->
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+    <script src="/clientapp/shared-utilities/nav.js"></script>
+
+</body>
+
+</html>

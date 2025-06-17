@@ -1,0 +1,445 @@
+/* --------------------------------------------------Invoice Container&Invoice Items------------------------------------------------ */
+
+.invoices-count {
+    margin: 50px;
+    color: #3e97d6;
+}
+
+
+/* --------------------------------------------------TOGGLE SWITCH------------------------------------------------ */
+
+.toggle-switch-container{
+    margin: 50px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+
+/* --------------------------------------------------EMPTY INVOICE CONTAINER------------------------------------------------ */
+
+.no-invoices{
+    text-align: center;
+    margin: 80px auto;
+    color: #3e97d6;
+}
+
+
+/* --------------------------------------------------Invoice Container&Invoice Items------------------------------------------------ */
+
+
+.invoice-container {
+    width: 90%;
+    max-width: 800px;
+    min-height: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.invoice-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.invoice-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.invoice-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.invoice-amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3e97d6;
+}
+
+.invoice-currency {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3e97d6;
+}
+
+.invoice-extra-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    padding-left: 15px;
+    text-indent: -15px;
+    position: relative;
+}
+
+.invoice-extra-info p {
+    margin: 5px 0;
+}
+
+.invoice-extra-info p:before {
+    color: #3e97d6;
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .invoice-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .no-invoices {
+        font-size: 14px;
+    }
+
+    .invoice-name {
+        font-size: 14px;
+    }
+
+    .invoice-name,
+    .invoice-amount {
+        font-size: 14px;
+    }
+
+    .invoice-extra-info {
+        font-size: 13px;
+    }
+}
+
+/* --------------------------------------------------Loading Spinner------------------------------------------------ */
+
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3e97d6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* --------------------------------------------------Invoice Item Buttons------------------------------------------------ */
+
+
+/* Button Container */
+.invoice-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Button Styling */
+.invoice-buttons button {
+    flex: 1 1 48%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.delete-btn:active {
+    background-color: #a93226;
+    transform: translateY(1px);
+}
+
+/* Post&Pay Buttons */
+
+.pay-btn:hover,
+.post-btn:hover {
+    transform: translateY(-2px);
+}
+
+.pay-btn:hover,
+.post-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .invoice-buttons {
+        gap: 5px;
+    }
+
+    .invoice-buttons button {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+/* -----------------------------------------------------Popup------------------------------------------- */
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensures it's on top */
+}
+
+.popup-content p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.popup-content {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    background: white;
+    padding: 20px;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.popup-content h3 {
+    color: #3e97d6;
+}
+
+.btns-holder {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+
+.close-btn {
+    background-color: #3e97d6;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #fff;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.close-btn:active {
+    background-color: #3e97d6;
+}
+
+
+.update-btn {
+    background-color: #607D8B;
+    ;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.update-btn:hover {
+    background-color: #fff;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.update-btn:active {
+    background-color: #607D8B;
+}
+
+
+
+.popup-content input[type="text"] {
+    width: 77%;
+    max-width: 350px;
+    padding: 8px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.popup-content input[type="text"]:focus {
+    border-color: #3e97d6;
+    box-shadow: 0 0 5px rgba(62, 151, 214, 0.5);
+    outline: none;
+}
+
+
+.products-holder {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+}
+
+.detail-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.detail-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-prop {
+    color: #555;
+}
+
+.detail-separator {
+    color: #aaa;
+}
+
+/* -----------------------------------------------Add New Item------------------------------------------------------ */
+
+.detail-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin: 5px 0;
+    align-items: center;
+}
+
+.detail-input {
+    padding: 3px;
+    font-size: 14px;
+    width: 90px;
+}
+
+.detail-input.desc {
+    width: 180px;
+}
+
+.detail-input.total {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.add-detail-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #3e97d6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-detail-btn:hover {
+    background-color: #337ab7;
+}

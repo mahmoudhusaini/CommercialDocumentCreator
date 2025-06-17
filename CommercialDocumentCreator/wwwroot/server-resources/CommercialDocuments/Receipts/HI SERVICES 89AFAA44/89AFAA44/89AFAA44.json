@@ -1,0 +1,23 @@
+[
+    {
+        "description": "Black 117A Toner",
+        "name": "HP Toner 117A",
+        "quantityInStock": "1",
+        "sellingPrice": "70",
+        "productTotalPrice": "70"
+    },
+    {
+        "description": "4 Ports Hub: 2 X USB 3.0 + 1 Type C + 1 HDMI ",
+        "name": "Type C Hub",
+        "productTotalPrice": 165,
+        "quantityInStock": "11",
+        "sellingPrice": "15"
+    },
+    {
+        "description": "83 gran paper box of 5 packs ",
+        "name": "A4 Paper Box",
+        "productTotalPrice": 275,
+        "quantityInStock": "11",
+        "sellingPrice": "25"
+    }
+]

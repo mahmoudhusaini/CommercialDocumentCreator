@@ -1,0 +1,23 @@
+[
+    {
+        "description": "NA",
+        "name": "Lenovo i7 Laptop",
+        "quantityInStock": "5",
+        "sellingPrice": "1000",
+        "productTotalPrice": "5000"
+    },
+    {
+        "description": "NA",
+        "name": "H151 Logitech Headset",
+        "quantityInStock": "5",
+        "sellingPrice": "27",
+        "productTotalPrice": "135"
+    },
+    {
+        "description": "20,000 MAh",
+        "name": "Power Bank ",
+        "quantityInStock": "5",
+        "sellingPrice": "20",
+        "productTotalPrice": "100"
+    }
+]

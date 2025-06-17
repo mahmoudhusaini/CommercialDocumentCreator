@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/clientapp/shared-utilities/alerts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400&display=swap" rel="stylesheet">
+    <title>QUOTER</title>
+</head>
+
+<body>
+
+
+    <div class="nav">
+
+    </div>
+
+
+
+
+    <div class="content-one">
+        <div class="content-one-right">
+            <!-- <div class="quotation-nb">
+
+            </div> -->
+            <div>
+                <h3>Date: </h3>
+            </div>
+            <div>
+                <h3 class="quotation-date"></h3>
+            </div>
+            <div>
+                <h3>Client: </h3>
+            </div>
+            <div>
+                <input class="clientNameInput" type="text" required>
+            </div>
+            <div>
+                <h3>Currency: </h3>
+            </div>
+            <div>
+                <h3>USD</h3>
+            </div>
+            <div>
+                <h3>Valid until: </h3>
+            </div>
+            <div>
+                <h3 class="end-date"></h3>
+            </div>
+            <div>
+                <h3>Rate: </h3>
+            </div>
+            <div>
+                <input class="rateInput" type="number" min="0" required>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <br>
+    <hr>
+
+    <div class="new-row">
+        <button type="button" class="add-product-btn add-new-btn">
+            New Row
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="responsive-table-container">
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="signature-amount">
+        <div class="subtotal"></div>
+
+        <div class="total-row">
+            <h4>Signature: </h4>
+        </div>
+        <div class="warranty">
+            <label for="warranty-input-text"><b>Warranty:</b> </label>
+            <span>
+                <input type="text" name="warranty-input-text" id="warranty-input-text"
+                    value="Warranty Covers Manufacturer Defacts only" required>
+            </span>
+        </div>
+    </div>
+
+    <div class="amount-in-word">
+        <label for="delivery-delay-input"><b>Delivery Delay:</b></label>
+        <span>
+            <input type="number" id="delivery-delay-input" list="delivery-delay-options"
+                placeholder="Select Delivery Delay" min="0" value="1">
+        </span>
+    </div>
+
+
+
+
+
+
+
+    <div class="catalog-buttons">
+        <button class="btn create">Create</button>
+
+        <div class="list-box">
+            <select id="options-list">
+                <option value="" disabled selected>Direct Convert</option>
+                <option value="invoice">Invoice</option>
+                <option value="quotation">Quotation</option>
+            </select>
+        </div>
+        <button class="btn print">Print Delivery Note</button>
+
+    </div>
+    <div>
+        <input type="hidden" id="recordId">
+    </div>
+
+    <!-- #Alert Region -->
+    <div class="custom-alert" id="customAlert">
+        <div class="alert-content">
+            <h4 id="alertMessage"></h4>
+            <button id="alertOkButton">OK</button>
+            <button id="alertCancelButton">CANCEL</button>
+        </div>
+    </div>
+    <!-- End Region -->
+
+    <script src="main.js"></script>
+    <script src="/clientapp/shared-utilities/nav.js"></script>
+
+</body>
+
+</html>

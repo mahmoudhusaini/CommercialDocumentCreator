@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\server-resources\documents-products\**" />
+    <Content Remove="wwwroot\server-resources\documents-products\**" />
+    <EmbeddedResource Remove="wwwroot\server-resources\documents-products\**" />
+    <None Remove="wwwroot\server-resources\documents-products\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Shared\" />
+    <Folder Include="wwwroot\server-resources\CommercialDocuments\Invoices\" />
+    <Folder Include="wwwroot\server-resources\CommercialDocuments\Invoices\Paid\" />
+    <Folder Include="wwwroot\server-resources\CommercialDocuments\Invoices\Pending\" />
+  </ItemGroup>
+
+</Project>
