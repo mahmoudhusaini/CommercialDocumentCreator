@@ -344,18 +344,12 @@ async function openPopUp(id) {
             <div>Actions</div>
          </div>
 
-        <!-- Repeatable product rows -->
-
         ${detailsTemplate}
-         
-        
-         
       </div>
       <div>
             <button class="add-detail-btn" type="button" onclick="addDetailRow()">+ Add Item</button>
       </div>
     </div>
-
   </div>
 </div>
 

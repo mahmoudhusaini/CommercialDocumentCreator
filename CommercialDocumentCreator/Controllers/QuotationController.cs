@@ -119,7 +119,26 @@ namespace CommercialDocumentCreator.Controllers
             }
 
 
-            return Ok(new { quotation = quote, details = jsonText });
+
+            string template =
+                            "<div class=\"popup-content\">\r\n    \r\n" +
+                            "<button class=\"close-popup-btn\" onclick=\"closePopup()\">✖</button>\r\n\r\n" +
+                            "<div class=\"popup-sidebar\">\r\n" +
+                            "<label for=\"client-name\">Client Name:</label>\r\n" +
+                            $"<input type=\"text\" value=\"{quote.ClientName}\" id=\"client-name\" name=\"client-name\" placeholder=\"Enter client name\" />\r\n\r\n" +
+                            "<label for=\"total\">Total:</label>\r\n" +
+                            $"<input type=\"text\" value=\"{quote.TotalAmount}\" id=\"total\" name=\"total\" readonly />\r\n\r\n" +
+                            "<label for=\"warranty\">Warranty:</label>\r\n" +
+                            $"<input type=\"text\" value=\"{quote.Warranty}\" id=\"warranty\" name=\"warranty\" />\r\n\r\n" +
+                            "<label for=\"rate\">Rate:</label>\r\n" +
+                            $"<input type=\"number\" value=\"{quote.Rate}\" id=\"rate\" name=\"rate\" />\r\n\r\n" +
+                            "<label for=\"delivery-delay\">Delay:</label>\r\n" +
+                            $"<input type=\"number\" value=\"{quote.DeliveryDelay}\" id=\"delivery-delay\" name=\"delivery-delay\" />\r\n\r\n";
+
+
+
+
+            return Ok(new { quotation = quote, details = jsonText, template = template });
         }
 
         #endregion

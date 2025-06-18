@@ -1,5 +1,3 @@
-
-
 // #region Variables
 
 const loadingSpinner = document.getElementById("loadingSpinner");
@@ -17,14 +15,13 @@ cancelButton.onclick = () => {
 let singleQuotationProducts = [];
 
 let toggleSwitch = document.querySelector('#toggleStatus');
-let quotationsLength = 0;
 
 // #endregion
 
 
 // #region CUSTOM ALERT
 
-function customAlert(message){
+function customAlert(message) {
     alertMessage.textContent = message;
     alertBox.style.display = 'flex';
 
@@ -37,9 +34,6 @@ function customAlert(message){
 }
 
 // #endregion
-
-
-
 
 // #region ON LOAD EVENT
 
@@ -64,7 +58,6 @@ function spin() {
 
 // #region Load Quotations function
 
-
 async function loadQuotations() {
 
     const url = `/api/all/quots`;
@@ -74,15 +67,12 @@ async function loadQuotations() {
     if (response.ok) {
 
         let result = await response.json();
-        quotationsLength = result.length;
         await displayQuotations(result);
 
     } else {
         console.log('Error fetching quotations');
     }
-
 }
-
 
 async function displayQuotations(quotations) {
 
@@ -117,7 +107,6 @@ async function displayQuotations(quotations) {
         span2.className = 'quote-amount';
         span3.className = 'quote-currency';
 
-
         span1.appendChild(document.createTextNode(quot.clientName));
         span2.appendChild(document.createTextNode(`\t${quot.totalAmount}`));
         span3.appendChild(document.createTextNode(`\t$`));
@@ -125,7 +114,6 @@ async function displayQuotations(quotations) {
         headerQuotationItem.appendChild(span1);
         headerQuotationItem.appendChild(span2);
         headerQuotationItem.appendChild(span3);
-
 
         let extraInfoQuotationItem = document.createElement('div');
         extraInfoQuotationItem.className = 'quote-extra-info';
@@ -143,7 +131,6 @@ async function displayQuotations(quotations) {
         extraInfoQuotationItem.appendChild(bDocumentNumber);
         extraInfoQuotationItem.appendChild(pCreationDate);
         extraInfoQuotationItem.appendChild(pValidityDate);
-
 
         let buttonsContainer = document.createElement('div');
         buttonsContainer.className = 'quotation-buttons';
@@ -251,7 +238,7 @@ async function openPopUp(id) {
 
     const url = `/api/get/quotation/${id}`;
 
-    let quotation = undefined, details = [], total = 0;
+    let quotation = undefined, details = [], total = 0, template = '';
 
     try {
         let response = await fetch(url, {
@@ -260,12 +247,11 @@ async function openPopUp(id) {
 
         if (response.ok) {
             let result = await response.json();
-
             quotation = result.quotation;
+            template = result.template;
             details = JSON.parse(result.details);
             singleQuotationProducts = details;
             total = parseFloat(quotation.totalAmount);
-
         } else {
             console.log('No response');
         }
@@ -307,60 +293,25 @@ async function openPopUp(id) {
 
 
 
-    let popUpTemplate = ` 
-<div class="popup-overlay" style="display: none;">
-  <div class="popup-content">
-    
-    <button class="close-popup-btn" onclick="closePopup()">✖</button>
-
-    <div class="popup-sidebar">
-      <label for="client-name">Client Name:</label>
-      <input type="text" value="${quotation.clientName}" id="client-name" name="client-name" placeholder="Enter client name" />
-
-      <label for="total">Total:</label>
-      <input type="text" value="${quotation.totalAmount}" id="total" name="total" readonly />
-
-      <label for="warranty">Warranty:</label>
-      <input type="text" value="${quotation.warranty}" id="warranty" name="warranty" />
-
-      <label for="rate">Rate:</label>
-      <input type="number" value="${quotation.rate}" id="rate" name="rate" />
-
-      <label for="delivery-delay">Delay:</label>
-      <input type="number" value="${quotation.deliveryDelay}" id="delivery-delay" name="delivery-delay" />
-
-      <button class="update-btn" onclick="UpdateQuotation(${id}, ${total})">Update</button>
-    </div>
-
-    <!-- Product List Section -->
-    <div class="popup-products">
-      
-      <div class="product-table">
-         <div class="product-row header">
-            <div>Product</div>
-            <div>Description</div>
-            <div>Price</div>
-            <div>Qty</div>
-            <div>Total</div>
-            <div>Actions</div>
-         </div>
-
-        <!-- Repeatable product rows -->
-
-        ${detailsTemplate}
-         
-        
-         
-      </div>
-      <div>
-            <button class="add-detail-btn" type="button" onclick="addDetailRow()">+ Add Item</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-`;
+    let popUpTemplate = `<div class="popup-overlay" style="display: none;">
+                            ${template}
+                            <button class="update-btn" onclick="UpdateQuotation(${id}, ${total})">Update</button>
+                            </div>
+                            <div class="popup-products">    
+                              <div class="product-table">
+                                 <div class="product-row header">
+                                    <div>Product</div>
+                                    <div>Description</div>
+                                    <div>Price</div>
+                                    <div>Qty</div>
+                                    <div>Total</div>
+                                    <div>Actions</div>
+                                 </div>`;
+    popUpTemplate += `${detailsTemplate}
+                    </div>
+                    <div>
+                        <button class="add-detail-btn" type="button" onclick="addDetailRow()">+ Add Item</button>
+                    </div></div></div></div>`;
 
     document.body.insertAdjacentHTML('beforeend', popUpTemplate);
     document.querySelector('.popup-overlay').style.display = 'flex';
