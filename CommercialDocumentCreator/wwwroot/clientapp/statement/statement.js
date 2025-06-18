@@ -1,10 +1,13 @@
 
 
 let generateBtn = document.querySelector('.gen-statement');
+let detailsStatementBtn = document.querySelector('.det-statement');
 const startDateInput = document.querySelector('#start-date');
 const endDateInput = document.querySelector('#end-date');
 let statementContainer = document.getElementById('statement-result');
 let printBtn = document.querySelector('.print-statement');
+let detailedStatementContainer = document.querySelector('.detailed-statement-result');
+
 
 let statement = {};
 
@@ -33,7 +36,7 @@ generateBtn.addEventListener('click', (event) => {
 
     if (start && end) {
 
-        statement = generateStatement(start, end);
+        generateStatement(start, end);
 
     } else {
         statementContainer.innerText =
@@ -42,17 +45,15 @@ generateBtn.addEventListener('click', (event) => {
 });
 
 
-
-
-
-
 async function displayStatement() {
 
     if (statement === null || statement === undefined) {
         return;
     }
 
-
+    detailsStatementBtn.style.display = 'block';
+    
+    
     statementContainer.innerHTML =
         `
                 <div class="statement-summary">
@@ -101,5 +102,11 @@ async function displayStatement() {
                     </tfoot>
                 </table>
             </div>
+           
             `;
 }
+
+detailsStatementBtn.addEventListener('click', () => {
+    detailedStatementContainer.style.display = 'block';
+    detailedStatementContainer.innerHTML = `${statement.detailedTemplate}`;
+});

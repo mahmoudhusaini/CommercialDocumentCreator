@@ -39,7 +39,7 @@
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-
+.det-statement,
 button[type="submit"] {
   display: block;
   width: 100%;
@@ -52,11 +52,20 @@ button[type="submit"] {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
+.det-statement,
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
+.detailed-statement .det-statement {
+  display: none;
+}
+
+.detailed-statement{
+  margin-top: 15px;
+}
+
+.detailed-statement-result,
 .statement-result {
   margin-top: 24px;
   padding: 16px;
@@ -67,7 +76,9 @@ button[type="submit"]:hover {
   color: #444;
 }
 
-
+.detailed-statement-result {
+  display: none;
+}
 
 .statement-summary {
   color: #333;

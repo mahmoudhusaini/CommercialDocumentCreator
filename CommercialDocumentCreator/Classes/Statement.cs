@@ -25,6 +25,8 @@ namespace CommercialDocumentCreator.Classes
 
         public double? TotalIncome => this.CashFromReceipts + this.DepositFromInvoice;
 
+        public string? DetailedTemplate { get; set; }
+
 
     }
 }
