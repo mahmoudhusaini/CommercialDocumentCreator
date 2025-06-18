@@ -1,6 +1,3 @@
-
-
-
 let navConatiner = document.querySelector('.nav');
 
 // #region Assemble Left Nav to The Nav Bar - Left Nav : Logo + Legal Info
@@ -22,7 +19,6 @@ img.className = 'company-logo';
 img.setAttribute('src', '/clientapp/images/ictech-2-2.jpg');
 a.appendChild(img);
 
-
 let legalInfoContainer = document.createElement('div');
 legalInfoContainer.className = 'legal-info';
 
@@ -39,7 +35,6 @@ rccm.className = 'rccm';
 const rccmTextNode = document.createTextNode("RCCM : 22-A-01980");
 rccm.appendChild(rccmTextNode);
 legalInfoContainer.appendChild(rccm);
-
 
 let nimpot = document.createElement('div');
 nimpot.className = 'nimpot';
@@ -66,8 +61,6 @@ for (let i = 0; i < 5; i++) {
     partnershipsLogo.className = `partnershipsLogo${i}`;
     div.appendChild(partnershipsLogo);
 }
-
-
 // #endregion
 
 
@@ -94,8 +87,6 @@ function assembleCompanyInfo() {
         const textNode = document.createTextNode(companyInfo[i]);
         p.appendChild(textNode);
         contentOneLeft.appendChild(p);
-
     }
 }
-
 //#endregion

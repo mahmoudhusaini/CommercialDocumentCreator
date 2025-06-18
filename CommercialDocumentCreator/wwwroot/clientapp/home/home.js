@@ -1,11 +1,9 @@
 
 const gridBtnsContainer = document.querySelector('.grid-btns-container');
 
-
 async function loadQuotationPage() {
     window.location.href = '/clientapp/create-quotation/index.html';
 }
-
 
 async function loadInvoicePage() {
     window.location.href = '/clientapp/create-invoice/index.html';
@@ -18,7 +16,6 @@ async function loadReceiptPage() {
 async function loadNewProductPage() {
     window.location.href = '/clientapp/new-product/index.html';
 }
-
 
 gridBtnsContainer.addEventListener('click', (event) => {
     let button = event.target;
