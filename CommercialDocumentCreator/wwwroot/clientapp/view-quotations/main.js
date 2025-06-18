@@ -174,9 +174,6 @@ quotationsList.addEventListener('click', (event) => {
     }
 
 });
-
-
-
 // #endregion
 
 // #region Delete QUOTATION
@@ -188,7 +185,6 @@ async function deleteQuotation(id) {
     const url = `/api/delete/quotaion/${id}`;
     let response = await fetch(url, { method: 'DELETE' });
     if (response.ok) {
-        //let result = await response.json();
         location.reload();
 
     } else {
