@@ -17,6 +17,8 @@ builder.Services.AddTransient<TradeTallyHelper>();
 builder.Services.AddTransient<StatementHelper>();
 builder.Services.AddTransient<CategoryHelper>();
 builder.Services.AddTransient<SharedUtilitiesHelper>();
+builder.Services.AddTransient<DeliveryNoteHelper>();
+
 
 
 

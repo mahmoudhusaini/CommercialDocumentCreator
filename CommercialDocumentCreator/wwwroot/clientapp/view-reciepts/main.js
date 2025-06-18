@@ -330,8 +330,7 @@ async function openPopUp(id) {
 
       <button class="update-btn" onclick="UpdateQuotation(${id}, ${total})">Update</button>
     </div>
-
-    <!-- Product List Section -->
+    
     <div class="popup-products">
       
       <div class="product-table">
