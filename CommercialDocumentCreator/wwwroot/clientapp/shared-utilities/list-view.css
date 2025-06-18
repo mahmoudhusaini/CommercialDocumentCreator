@@ -5,7 +5,6 @@
     color: #3e97d6;
 }
 
-
 /* --------------------------------------------------TOGGLE SWITCH------------------------------------------------ */
 
 .toggle-switch-container {
@@ -61,6 +60,7 @@ input:checked+.slider:before {
 /* --------------------------------------------------EMPTY DOCUMENTS CONTAINER------------------------------------------------ */
 
 .no-quotations,
+.no-reciepts,
 .no-invoices {
     text-align: center;
     margin: 80px auto;
@@ -72,6 +72,7 @@ input:checked+.slider:before {
 
 
 .quotation-container,
+.reciept-container,
 .invoice-container {
     width: 90%;
     max-width: 800px;
@@ -84,6 +85,7 @@ input:checked+.slider:before {
 }
 
 .quotation-list,
+.reciept-list,
 .invoice-list {
     list-style-type: none;
     padding: 0;
@@ -91,6 +93,7 @@ input:checked+.slider:before {
 }
 
 .quotation-item,
+.reciept-item,
 .invoice-item {
     cursor: pointer;
     display: flex;
@@ -104,12 +107,14 @@ input:checked+.slider:before {
 }
 
 .quotation-item:hover,
+.reciept-item:hover,
 .invoice-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .quote-name,
+.reciept-name,
 .invoice-name {
     font-size: 16px;
     font-weight: bold;
@@ -117,6 +122,7 @@ input:checked+.slider:before {
 }
 
 .quote-amount,
+.reciept-amount,
 .invoice-amount {
     font-size: 16px;
     font-weight: bold;
@@ -124,13 +130,15 @@ input:checked+.slider:before {
 }
 
 .quote-currency,
-.invoice-currency {
+.invoice-currency,
+.reciept-currency {
     font-size: 14px;
     font-weight: bold;
     color: #3e97d6;
 }
 
 .quote-extra-info,
+.reciept-extra-info,
 .invoice-extra-info {
     margin-top: 10px;
     font-size: 14px;
@@ -141,12 +149,14 @@ input:checked+.slider:before {
 }
 
 .quote-extra-info p,
-.invoice-extra-info p {
+.invoice-extra-info p,
+.reciept-extra-info p {
     margin: 5px 0;
 }
 
 .quote-extra-info p:before,
-.invoice-extra-info p:before {
+.invoice-extra-info p:before,
+.reciept-extra-info p:before {
     color: #3e97d6;
     position: absolute;
     left: 0;
@@ -156,29 +166,35 @@ input:checked+.slider:before {
 @media (max-width: 768px) {
 
     .quotation-item,
+    .reciept-item,
     .invoice-item {
         flex-direction: column;
         align-items: flex-start;
     }
 
     .no-quotations,
+    .no-reciepts,
     .no-invoices {
         font-size: 14px;
     }
 
     .quote-name,
+    .reciept-name,
     .invoice-name {
         font-size: 14px;
     }
 
     .quote-name,
+    .reciept-name,
     .invoice-name,
     .quote-amount,
+    .reciept-amount,
     .invoice-amount {
         font-size: 14px;
     }
 
     .quote-extra-info,
+    .reciept-extra-info,
     .invoice-extra-info {
         font-size: 13px;
     }
@@ -213,7 +229,6 @@ input:checked+.slider:before {
 
 
 /* -------------------------------------------------- Item Buttons------------------------------------------------ */
-
 
 /* Button Container */
 .quotation-buttons,
@@ -281,8 +296,6 @@ input:checked+.slider:before {
     }
 }
 
-
-
 /* -----------------------------------------------Add New Item------------------------------------------------------ */
 
 .detail-row {
@@ -322,27 +335,7 @@ input:checked+.slider:before {
     background-color: #337ab7;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ----------------------------------------------- Popup Main Container  ---------------------------------------------- */
-
-
-
-
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -392,7 +385,6 @@ input:checked+.slider:before {
     border-radius: 4px;
 
 }
-
 .update-btn {
     background-color: #607D8B;
     color: #fff;
@@ -413,7 +405,6 @@ input:checked+.slider:before {
 .update-btn:active {
     background-color: #607D8B;
 }
-
 
 /* ----------------------------------------------- Popup Products  ----------------------------------------------------- */
 
@@ -474,13 +465,6 @@ input:checked+.slider:before {
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-/* 
-textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-} */
-
-
 
 @media (max-width: 768px) {
     .popup-content {

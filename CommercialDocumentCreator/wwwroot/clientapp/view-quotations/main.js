@@ -150,8 +150,6 @@ async function displayQuotations(quotations) {
 
 //#endregion
 
-
-
 // #region Buttons Actions
 
 quotationsList.addEventListener('click', (event) => {
@@ -167,12 +165,10 @@ quotationsList.addEventListener('click', (event) => {
                 break;
             case 'open-btn':
                 const id = parentItem.dataset.reference;
-
                 openPopUp(id);
                 break;
         }
     }
-
 });
 // #endregion
 
@@ -209,9 +205,6 @@ function customDeleteAlert(message, id) {
 }
 
 // #endregion
-
-
-
 
 // #region HIDE QUOTATION
 
@@ -256,11 +249,7 @@ async function openPopUp(id) {
         throw new Error("Server ERROR: " + error.message);
     }
 
-
-
     let detailsTemplate = '';
-
-
 
     for (let i = 0; i < details.length; i++) {
         detailsTemplate += `
@@ -284,12 +273,9 @@ async function openPopUp(id) {
                 <div>${details[i].productTotalPrice}</div>
             </div>
 `;
+}
 
-    }
-
-
-
-    let popUpTemplate = `<div class="popup-overlay" style="display: none;">
+let popUpTemplate = `<div class="popup-overlay" style="display: none;">
                             ${template}
                             <button class="update-btn" onclick="UpdateQuotation(${id}, ${total})">Update</button>
                             </div>
@@ -311,9 +297,7 @@ async function openPopUp(id) {
 
     document.body.insertAdjacentHTML('beforeend', popUpTemplate);
     document.querySelector('.popup-overlay').style.display = 'flex';
-
 }
-
 
 
 // #endregion
@@ -334,7 +318,6 @@ async function UpdateQuotation(id, amount) {
     let delayInput = document.querySelector('#delivery-delay');
 
     let products = JSON.stringify(singleQuotationProducts);
-
 
     let form = new FormData();
 
@@ -366,15 +349,12 @@ async function UpdateQuotation(id, amount) {
 
 // #region ADD PRODUCT ROW
 
-
 function addDetailRow() {
     const container = document.querySelector(".product-table");
     const row = document.createElement("div");
     row.className = "new-product-row product-row";
 
     row.innerHTML = `
-       
-        
                 <div>
                     <input class="det-inp name" type="text" placeholder="Name" required />
                 </div>
@@ -463,13 +443,9 @@ async function updateProductsAndTotal() {
 
     return addedOverAllTotal;
 }
-
 //#endregion
 
-
-
 // #region Get Payment Status
-
 function getStatusState(status) {
     switch (status) {
         case 0:
