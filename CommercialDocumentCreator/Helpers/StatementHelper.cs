@@ -26,7 +26,7 @@ namespace CommercialDocumentCreator.Helpers
 
             var receipts = await this._context.Receipts
                             .Where(recs => recs.CreationDate >= start && recs.CreationDate <= end).ToListAsync();
-            
+
             var invoices = await this._context.Invoices
                             .Where(invcs => invcs.CreationDate >= start && invcs.CreationDate <= end)
                             .ToListAsync();
@@ -118,9 +118,66 @@ namespace CommercialDocumentCreator.Helpers
 
             }
 
-            statement.DetailedTemplate = template ;
-
+            statement.DetailedTemplate = template;
+            statement.Template = GetTemplate(statement);
             return statement;
+        }
+
+
+
+        private string GetTemplate(Statement statement)
+        {
+            string template =
+
+                "<div class=\"statement-summary\">\r\n" +
+                "<h3>Statement Summary</h3>\r\n" +
+                $"<p><strong>{statement.Date}</strong></p>\r\n\r\n" +
+                $"<p><strong>Period:</strong> {statement.From} to {statement.To}</p>\r\n\r\n" +
+                "<table class=\"statement-table\">\r\n" +
+                    "<thead>\r\n" +
+                        "<tr>\r\n" +
+                            "<th>Description</th>\r\n" +
+                            "<th>Amount ($)</th>\r\n" +
+                            "<th></th>\r\n" +
+                        "</tr>\r\n" +
+                    "</thead>\r\n" +
+
+                    "<tbody>\r\n" +
+                        "<tr>\r\n" +
+                            "<td>Cash From Receipts</td>\r\n" +
+                            $"<td>${statement.CashFromReceipts}</td>\r\n" +
+                            "<td>\r\n" +
+                                "<a href=\"/clientapp/view-reciepts/index.html\">\r\n" +
+                                    "<div class=\"green-circle\"></div></td>\r\n" +
+                                "</a>\r\n" +
+                            "</td>\r\n" +
+                        "</tr>\r\n" +
+                        "<tr>\r\n" +
+                            "<td>Deposit From Invoices</td>\r\n" +
+                            $"<td>{statement.DepositFromInvoice}</td>\r\n" +
+                            "<td><div class=\"green-circle\"></div></td>\r\n" +
+                        "</tr>\r\n" +
+                        "<tr>\r\n" +
+                            "<td>Pending From Invoices</td>\r\n" +
+                            $"<td>{statement.PendingFromInvoice}</td>\r\n" +
+                            "<td>\r\n" +
+                                "<a href=\"/clientapp/view-invoices/index.html\">\r\n" +
+                                    "<div class=\"red-circle\"></div></td>\r\n" +
+                                "</a>\r\n" +
+                        "</tr>\r\n" +
+                    "</tbody>\r\n" +
+
+                    "<tfoot>\r\n" +
+                        "<tr>\r\n" +
+                            "<td colspan=\"2\"><strong>Total Income</strong></td>\r\n" +
+                            $"<td colspan=\"2\"><strong>{statement.TotalIncome}</strong></td>\r\n" +
+                        "</tr>\r\n" +
+                    "</tfoot>\r\n" +
+                "</table>\r\n" +
+              "</div>";
+
+
+            return template;
         }
 
 
