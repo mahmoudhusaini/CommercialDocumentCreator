@@ -361,6 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-#Ignore Category Folder
-./CommercialDocumentCreator/CommercialDocumentCreator/wwwroot/clientapp/new-category
