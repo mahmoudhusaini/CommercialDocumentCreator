@@ -10,10 +10,10 @@ namespace CommercialDocumentCreator.Classes.CommercialModels
         public DateOnly CreationDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public string? ClientName { get; set; }
 
-        public List<ItemDetails>? Items { get; set; }
+        public List<DeliveryNoteDetails>? Items { get; set; }
     }
 
-    public class ItemDetails
+    public class DeliveryNoteDetails
     {
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -22,13 +22,8 @@ namespace CommercialDocumentCreator.Classes.CommercialModels
         public string? Description { get; set; }
 
         [JsonPropertyName("quantityInStock")]
-        public int? QuantityInStock { get; set; }
+        public string? QuantityInStock { get; set; }
 
-        [JsonPropertyName("sellingPrice")]
-        public double? SellingPrice { get; set; }
-
-        [JsonPropertyName("productTotalPrice")]
-        public double? TotalRaw => this.SellingPrice * this.QuantityInStock;
     }
 
 }
