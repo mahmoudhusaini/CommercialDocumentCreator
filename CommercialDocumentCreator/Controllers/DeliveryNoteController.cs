@@ -11,10 +11,17 @@ namespace CommercialDocumentCreator.Controllers
     {
 
         private readonly DeliveryNoteHelper _helper;
+
+        #region CTOR
+
         public DeliveryNoteController(DeliveryNoteHelper helper)
         {
             this._helper = helper;
         }
+
+        #endregion
+
+        #region PRINT DELIVERY NOTE
 
 
         [HttpPost("/api/deliveryNote/print")]
@@ -33,5 +40,8 @@ namespace CommercialDocumentCreator.Controllers
 
             return Ok(result);
         }
+
+
+        #endregion
     }
 }
