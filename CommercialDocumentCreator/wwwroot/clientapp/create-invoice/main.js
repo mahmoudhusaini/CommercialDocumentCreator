@@ -1,22 +1,20 @@
-
-
 let addProductBtn = document.querySelector('.add-product-btn');
 const tableBody = document.querySelector('.table-body');
 
 const alertBox = document.querySelector('#customAlert');
 const alertMessage = document.querySelector('#alertMessage');
+let okButton = document.querySelector('#alertOkButton');
 
-const alertBoxWithCancel = document.querySelector('.custom-alert-with-cancel');
-const alertMessageWithCancel = document.querySelector('#alertMessageWithCancel');
-const cancelButton = document.querySelector('#alertCancelButtonWithCancel');
-
+const cancelButton = document.querySelector('#alertCancelButton');
+cancelButton.onclick = () => {
+    alertBox.style.display = 'none';
+};
 
 const rateInput = document.querySelector('.rateInput');
 const warrantyInput = document.querySelector('.warranty input');
 const deliveryDelayInput = document.querySelector('#delivery-delay-input');
 const clientNameInput = document.querySelector('.clientNameInput');
 const cashDepositInput = document.querySelector('#deposit-amount');
-
 
 // #region Append Table Row
 
@@ -38,8 +36,6 @@ addProductBtn.addEventListener('click', (event) => {
             id: 'product-name',
         });
         inputProdName.setAttribute('placeholder', 'Enter product name');
-        // inputProdName.setAttribute('required', true);
-
         td.appendChild(inputProdName);
     }
 
@@ -196,7 +192,6 @@ tableBody.addEventListener('click', (event) => {
 // #endregion
 
 // #region Commercial Document Object
-
 let commercialDoc = {
     id: 0,
     invoiceNumber: '',
@@ -213,7 +208,6 @@ let commercialDoc = {
     remainingBalance: 0,
     cashDeposit: 0,
 };
-
 //#endregion
 
 // #region Row Total Price Calculation
@@ -259,7 +253,6 @@ function displayAlertMessage(errorMessage) {
     alertMessage.textContent = errorMessage;
     alertBox.style.display = 'flex';
 
-    let okButton = document.querySelector('#alertOkButton');
     okButton.style.backgroundColor = "#a93226";
 
     okButton.onclick = () => {
@@ -344,7 +337,7 @@ createButton.addEventListener('click', (event) => {
     }
 
     if (errorMap.size > 0) {
-        
+
         return;
     }
 
@@ -355,7 +348,7 @@ createButton.addEventListener('click', (event) => {
     const products = JSON.stringify(prods);
 
     let form = new FormData();
-    
+
     form.append('id', commercialDoc.id);
     form.append('rate', rate);
     form.append('warranty', warranty);
@@ -383,7 +376,7 @@ async function createInvoice(form) {
         const documentType = getPaperType(result.type);
 
         commercialDoc.id = result.id;
-        
+
         commercialDoc.documentNumber = result.invoiceNumber;
         commercialDoc.creationDate = result.creationDate;
         commercialDoc.clientName = result.clientName;
@@ -695,21 +688,15 @@ convertSelect.addEventListener('change', (event) => {
     }
 
     let target = event.target;
+    alertMessage.textContent = "Are You Sure You Want To Convert That Invoice";
+    alertBox.style.display = 'flex';
 
-    alertMessageWithCancel.textContent = "Are You Sure You Want To Convert That Invoice";
-    alertBoxWithCancel.style.display = 'flex';
-
-    let okButton = document.querySelector('#alertOkButtonWithCancel');
     okButton.style.backgroundColor = "#2e7db4";
 
     okButton.onclick = () => {
-        alertBoxWithCancel.style.display = 'none';
+        alertBox.style.display = 'none';
         let type = target.value;
         convertInvoice(type);
-    };
-
-    cancelButton.onclick = () => {
-        alertBoxWithCancel.style.display = 'none';
     };
 });
 
@@ -726,12 +713,10 @@ async function convertInvoice(type) {
 
     form.append('rate', rateInput.value);
     form.append('delay', deliveryDelayInput.value);
-    // form.append('olDocumentId', commercialDoc.documentNumber);
     form.append('warranty', warrantyInput.value);
     form.append('clientName', clientNameInput.value);
     form.append('overAllAmount', total);
     form.append('products', products);
-
 
     let response = await fetch(url, {
         method: 'POST',
@@ -836,18 +821,6 @@ function getPaperType(n) {
 
 // #endregion
 
-
-
-
-
-// POSTPONED
-
-function showWithCancelModal(message) {
-
-
-}
-
-
 // #region Pay Invoice 
 
 const payBtn = document.querySelector('.pay')
@@ -861,23 +834,15 @@ payBtn.addEventListener('click', () => {
 
 async function payInvoice() {
 
-    alertMessageWithCancel.textContent = "Are You Sure You Want To Close That Invoice";
-    alertBoxWithCancel.style.display = 'flex';
+    alertMessage.textContent = "Are You Sure You Want To Close That Invoice";
+    alertBox.style.display = 'flex';
 
-    let okButton = document.querySelector('#alertOkButtonWithCancel');
     okButton.style.backgroundColor = "#2e7db4";
 
     okButton.onclick = () => {
-        alertBoxWithCancel.style.display = 'none';
+        alertBox.style.display = 'none';
         pay();
     };
-
-    cancelButton.onclick = () => {
-        alertBoxWithCancel.style.display = 'none';
-    };
-
-
-
 }
 
 async function pay() {
@@ -894,7 +859,7 @@ async function pay() {
 
         alert(result.message);
     } else {
-       displayAlertMessage('Error while executing the payment' + '\nConsider Posting The Invoice First');
+        displayAlertMessage('Error while executing the payment' + '\nConsider Posting The Invoice First');
     }
 }
 // #endregion
