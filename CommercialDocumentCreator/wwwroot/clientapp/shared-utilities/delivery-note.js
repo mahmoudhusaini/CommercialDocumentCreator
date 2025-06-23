@@ -13,6 +13,7 @@ async function print() {
     });
     if (response.ok) {
         let result = await response.text();
+        const iframe = document.createElement("iframe");
         iframe.style.position = "absolute";
         iframe.style.top = "-10000px";
         document.body.appendChild(iframe);

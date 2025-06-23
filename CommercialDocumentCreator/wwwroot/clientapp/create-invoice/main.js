@@ -281,12 +281,10 @@ createButton.addEventListener('click', (event) => {
     const clientName = clientNameInput.value;
     let cashDepositValue = cashDepositInput.value;
 
-
     // #region Validate Fields
 
     deliveryDelay = Number(deliveryDelay) < 1 ? 1 : deliveryDelay;
     cashDepositValue = Number(cashDepositValue) < 0 ? 0 : cashDepositValue;
-
 
     if (!clientName) {
         inValidateInputField(clientNameInput);
@@ -296,7 +294,6 @@ createButton.addEventListener('click', (event) => {
         errorMap.delete(0);
     }
 
-
     if (!rate || rate < 0) {
         inValidateInputField(rateInput);
         errorMap.set(1, "Invalid Rate");
@@ -304,7 +301,6 @@ createButton.addEventListener('click', (event) => {
         validateInputField(rateInput);
         errorMap.delete(1);
     }
-
 
     let prods = getProducts();
 
@@ -318,11 +314,9 @@ createButton.addEventListener('click', (event) => {
         errorMap.delete(2);
     }
 
-
     if (!warranty) {
         warranty = "Warranty Covers Manufacturer Defacts only";
     }
-
 
     if (cashDepositValue > overAll) {
         let errorMessage = "Cash Amount Is Greater Than The Invoice Total";
@@ -341,9 +335,7 @@ createButton.addEventListener('click', (event) => {
         return;
     }
 
-
     //#endregion
-
 
     const products = JSON.stringify(prods);
 
