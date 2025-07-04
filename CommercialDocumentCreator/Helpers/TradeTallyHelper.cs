@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace CommercialDocumentCreator.Helpers
 {
+    //https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-11
+    //https://developer.ifs.com/tools/repdesigner
     public class TradeTallyHelper
     {
         private readonly AppDbContext _dbContext;
